@@ -82,7 +82,7 @@ X = [ones(m, 1) X];
 fprintf('Running gradient descent ...\n');
 
 % Choose some alpha value
-alpha = 0.01;
+alpha = 0.1;
 num_iters = 400;
 
 % Init Theta and Run Gradient Descent 
@@ -106,6 +106,15 @@ fprintf('\n');
 % not need to be normalized.
 price = 0; % You should change this
 
+%Initialize new data point
+pred = [1 1650 3];
+
+%Normalize them
+pred(1,2) = (pred(1,2) - mu(1,1))/(sigma(1,1));
+pred(1,3) = (pred(1,3) - mu(1,2))/(sigma(1,2));
+
+%Setting the prediction to the output variable
+price = pred * theta;
 
 % ============================================================
 
@@ -151,9 +160,17 @@ fprintf('\n');
 % ====================== YOUR CODE HERE ======================
 price = 0; % You should change this
 
+%Initialize new data point
+pred = [1 1650 3];
+
+%Normalize them
+pred(1,2) = (pred(1,2) - mu(1,1))/(sigma(1,1));
+pred(1,3) = (pred(1,3) - mu(1,2))/(sigma(1,2));
+
+%Setting the prediction to the output variable
+price = pred * theta;
 
 % ============================================================
 
 fprintf(['Predicted price of a 1650 sq-ft, 3 br house ' ...
          '(using normal equations):\n $%f\n'], price);
-
