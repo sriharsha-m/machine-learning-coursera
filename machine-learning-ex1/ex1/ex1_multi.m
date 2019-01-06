@@ -33,6 +33,7 @@ clear ; close all; clc
 
 fprintf('Loading data ...\n');
 
+
 %% Load Data
 data = load('ex1data2.txt');
 X = data(:, 1:2);
